@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get 'users/index'
+  get 'sessions/new'
+    # ログイン機能
+  get    '/login', to: 'sessions#new'
+  post   '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
-  get 'users/show'
-
-  get 'users/edit'
-
-  get 'users/new'
+  
 
   root 'static_pages#top'
   get '/signup', to: 'users#new'

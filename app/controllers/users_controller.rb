@@ -3,16 +3,14 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :edit_basic_info, :update_basic_info]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: [:destroy, :edit_basic_info, :update_basic_info]
+  before_action :set_one_month, only: :show
 
   def index
     @users = User.paginate(page: params[:page])
   end
 
   def show
-    @first_day = Date.current.beginning_of_month
-    @last_day = @first_day.end_of_month
   end
-
 
   def new
     @user = User.new
@@ -59,17 +57,15 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
-
   private
 
     def user_params
       params.require(:user).permit(:name, :email, :department, :password, :password_confirmation)
     end
-    
+
     def basic_info_params
       params.require(:user).permit(:department, :basic_time, :work_time)
     end
-
 
     # beforeフィルター
 

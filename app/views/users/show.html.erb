@@ -2,7 +2,13 @@
 <div>
   <table class="table table-bordered table-condensed user-table">
     <tr>
-      <td>【<%= l(@first_day, format: :middle) %>】勤怠管理表</td>
+      <td>
+        
+        <%= link_to "⇦ 前月へ", user_path(date: @first_day.prev_month), class: "btn btn-info" %>
+        【<%= l(@first_day, format: :middle) %>】勤怠管理表
+        <%= link_to "次月へ ⇨", user_path(date: @first_day.next_month), class: "btn btn-info" %>
+      
+      </td>
       <td>指定勤務時間：<%= format_basic_info(@user.work_time) %></td>
       <td>基本時間：<%= format_basic_info(@user.basic_time) %></td>
       <td>月初日：<%= l(@first_day, format: :short) %></td>
@@ -17,9 +23,9 @@
   </table>
 </div>
 <div class="btn-users-show">
-  <%= link_to "⇦ 前月へ", user_path(date: @first_day.prev_month), class: "btn btn-info" %>
+
   <%= link_to "勤怠を編集", attendances_edit_one_month_user_path(date: @first_day), class: "btn btn-light" %>
-  <%= link_to "次月へ ⇨", user_path(date: @first_day.next_month), class: "btn btn-info" %>
+ 
 </div>
 <div>
   <table class="table table-bordered table-condensed table-hover" id="table-attendances">
@@ -34,7 +40,7 @@
         <th>備考</th>
       </tr>
     </thead>
-
+ 
     <tbody>
       <% @attendances.each do |day| %>
         <tr>
@@ -58,7 +64,7 @@
       <% end %>
 
     </tbody>
-
+e
     <tfoot>
       <tr>
         <td colspan="2">累計日数</td>

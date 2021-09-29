@@ -43,19 +43,17 @@
  
     <tbody>
       <% @attendances.each do |day| %>
-     
         <tr>
           <td><%= l(day.worked_on, format: :short) %></td>
            <td>
-            <%= $days_of_the_week[day.worked_on.wday] %>
-           
             <% if day.worked_on.wday == 6 %>
-              <font color="Blue">土</font>
+               <font color="Blue"><%= $days_of_the_week[day.worked_on.wday] %></font>　
+            <% elsif day.worked_on.wday == 0 %>
+              <font color="RED"><%= $days_of_the_week[day.worked_on.wday] %></font>
+            <% else %>
+            <%= $days_of_the_week[day.worked_on.wday] %>
             <% end %>
-            <% if day.worked_on.wday == 0 %>
-              <font color="RED">日</font>
-            <% end %>
-           </td>
+          </td>
 
           
       

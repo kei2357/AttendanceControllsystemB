@@ -61,7 +61,7 @@
           <td><%= l(day.worked_on, format: :short) %></td>
            <td>
             <% if day.worked_on.wday == 6 %>
-               <font color="Blue"><%= $days_of_the_week[day.worked_on.wday] %></font>　
+               <font color="Blue"><%= $days_of_the_week[day.worked_on.wday] %></font>
             <% elsif day.worked_on.wday == 0 %>
               <font color="RED"><%= $days_of_the_week[day.worked_on.wday] %></font>
             <% else %>
@@ -75,17 +75,15 @@
           <td><%= l(day.started_at, format: :hour) if day.started_at.present? %></td>
           <td><%= l day.started_at.round_to(15.minutes), format: :minute if day.started_at.present? %></td>
           <td>
-              <% if btn_text = attendance_state(day) %>
-              <%= link_to button_to "出社", user_attendance_path(@user, day), method: :patch, class: "btn btn-xs btn-primary" %>
-              <% end %>
+            <% if btn_text = attendance_state(day) %>
+              <%= link_to "#{btn_text}登録", user_attendance_path(@user, day), method: :patch, class: "btn btn-primary btn-attendance" %>
+            <% end %>
           </td>
-          
+                
           <td><%= l(day.finished_at, format: :hour) if day.finished_at.present? %></td>
           <td><%= l day.finished_at.round_to(15.minutes), format: :minute if day.finished_at.present? %></td>
           <td>
-              <% if btn_text = attendance_state(day) %>
-              <%= link_to button_to "退勤", user_attendance_path(@user, day), method: :patch, class: "btn btn-xs btn-primary" %>
-              <% end %>
+            
           </td>  
           
           <td>

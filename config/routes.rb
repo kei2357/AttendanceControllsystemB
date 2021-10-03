@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get    '/login', to: 'sessions#new'
   post   '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-
+  
+  
+  get 'basic_info', to: 'users#basic_info'
   resources :users do
     member do
       get 'edit_basic_info'

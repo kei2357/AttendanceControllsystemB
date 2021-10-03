@@ -32,7 +32,7 @@
        <td>|</td>
        <td class="center">
         <% if current_user.admin? && !current_user?(user) %>
-        <%= link_to "基本情報編集", edit_basic_info_user_path(user), remote: true %>
+        <%= link_to "基本情報編集", edit_basic_info_user_path(user) %>
        </td>
        <td>|</td>
        <td class="center">
@@ -47,4 +47,4 @@
 </div>
 
 <!--モーダルウインドウ表示-->
-<div id="edit-basic-info" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<!--<div id="edit-basic-info" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>-->

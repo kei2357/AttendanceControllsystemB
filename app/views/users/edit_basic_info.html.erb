@@ -20,8 +20,8 @@
             <%= f.label :work_time, class: "label-#{yield(:class_text)}" %>
             <%= f.time_field :work_time, class: "form-control" %>
 
-            <div class="center">
-              <%= f.submit yield(:button_text), class: "btn btn-primary btn-#{yield(:class_text)} btn-update"  %>
+　　　　　　<div>
+            <%= f.submit yield(:button_text), class: "btn btn-primary btn-block btn-#{yield(:class_text)}" %>
             </div>
           <% end %>
         </div>
